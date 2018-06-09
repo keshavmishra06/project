@@ -1,0 +1,95 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'pharma/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'pharma/bootstrap-theme.css' %}">
+    <link rel="stylesheet" href="{% static 'pharma/style.css' %}">
+    <title>Order </title>
+</head>
+
+<body>
+<div class="container padding-top-10">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h2 class="ordh1">Place Your Order</h2>
+        </div>
+
+        <div class="panel-body">
+            <form action="/pharma/forminsert/" method="post">
+                {% csrf_token %}
+                <div class="row padding-top-10">
+                    <div class="col-md-4 area1">
+                        <label for="c_id" class="form-control-label">Customer ID:</label>
+                    </div>
+                    <div class="form-group col-md-2" >
+                            <input type="text" class="form-control" id="address" placeholder="ID" name="cid"/>
+                    </div>
+                </div>
+            <div class="row padding-top-10">
+                <div id="nme" class="col-md-4 area1">
+                    <label for="c_name" class="form-control-label">Customer Name:</label>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <input type="text" name="fname" class="form-control" id="firstName" placeholder="First Name" value=""/>
+                </div>
+                <div class="col-md-4">
+                    <input type="text" name="lname" class="form-control" id="lastName" placeholder="Last Name"/>
+                </div>
+            </div>
+                <div class="row padding-top-10">
+                    <div class="col-md-4 area1">
+                        <label for="phn_no" class="form-control-label">Phone Number:</label>
+                    </div>
+                    <div class="form-group col-md-5" >
+                            <input type="text" name="pno" class="form-control" id="address" placeholder="Contact Number"/>
+                    </div>
+                </div>
+                <div class="row padding-top-10">
+                    <div class="col-md-4 area1">
+                        <label for="med_name" class="form-control-label">Medicine Name:</label>
+                    </div>
+                    <div class="form-group col-md-5" >
+                            <input type="text" class="form-control" id="address" placeholder="Medicine Name" name="medname"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 padding-top-15 area1">
+                        <label for="qty" class="form-control-label">Quantity:</label>
+                    </div>
+                    <div class="col-md-3 padding-top-15 area1 form-group">
+                        <input type="text" name="quantity" class="form-control" id="email" placeholder="Quantity"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                    </div>
+                    <div class="col-md-8 padding-top-10">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"/> Click here to become a member.
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row " id="buttoncustom">
+                    <div class="col-md-4">
+                    </div>
+                    <div class="col-md-8">
+                        <button type="submit" class="btn btn-success">Order</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
+

@@ -1,0 +1,59 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'pharma/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'pharma/bootstrap-theme.css' %}">
+    <link rel="stylesheet" href="{% static 'pharma/style1.css' %}">
+    <title>All Details</title>
+</head>
+<body>
+    <div class="container-fluid padding-top-15">
+        <div class="jumbotron-fluid">
+            <div class="row">
+                    <div class="col-md-1">
+                    </div>
+                    <table border="1" class="col-md-10">
+                        <tr>
+                            <th>Customer ID</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Phone Number</th>
+                            <th>Medicine Name</th>
+                            <th>Quantity</th>
+                        </tr>
+                        {% for foo in order %}
+                            <tr>
+                                <td>{{ foo.cust_id }}</td>
+                                <td>{{ foo.fname }}</td>
+                                <td>{{ foo.lname }}</td>
+                                <td>{{ foo.phn_no }}</td>
+                                <td>{{ foo.med_name }}</td>
+                                <td>{{ foo.qty }}</td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                    <div class="col-md-1">
+                    </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row back">
+            <div class="col-md-12">
+                <form class="padding-top-15" method="post" action="/pharma/">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <button class="btn btn-dark" type="submit">Back to Home</button>
+                                </div>
+                            </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

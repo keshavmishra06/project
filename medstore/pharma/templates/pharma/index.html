@@ -1,0 +1,39 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'pharma/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'pharma/bootstrap-theme.css' %}">
+    <link rel="stylesheet" href="{% static 'pharma/style.css' %}">
+    <title>Medical Store Home</title>
+</head>
+<body>
+    <div class="container-fluid padding-top-15 newclass">
+        <h1 class="col-md-12">Home</h1>
+        <div class="row">
+            <form class="col-md-6" method="post" action="/pharma/form/">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-10">
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-dark" type="submit">Insert</button>
+                    </div>
+                </div>
+            </form>
+
+            <form class="col-md-6" method="post" action="/pharma/table/">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-2">
+                        <button class="btn btn-dark" type="submit">View</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
